@@ -8,4 +8,5 @@ import java.util.UUID;
 public interface CarService {
     List<Car> getCars();
     Car getCarById(UUID carId);
+    Car saveNewCar(Car car);
 }

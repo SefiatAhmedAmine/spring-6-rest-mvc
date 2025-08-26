@@ -75,4 +75,24 @@ public class CarServiceImpl implements CarService {
         log.debug("CarServiceImpl.getCarById was called with carId={}", carId);
         return carMap.get(carId);
     }
+
+    @Override
+    public Car saveNewCar(Car car) {
+        log.debug("CarServiceImpl.saveNewCar was called with car={}", car);
+        Car savedCar = Car.builder()
+                .id(UUID.randomUUID())
+                .createdDate(LocalDateTime.now())
+                .updatedDate(LocalDateTime.now())
+                .carName(car.getCarName())
+                .quantityOnHand(car.getQuantityOnHand())
+                .price(car.getPrice())
+                .year(car.getYear())
+                .carStyle(car.getCarStyle())
+                .build();
+
+        carMap.put(savedCar.getId(), savedCar);
+        return savedCar;
+    }
+
+
 }
