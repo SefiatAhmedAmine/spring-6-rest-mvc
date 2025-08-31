@@ -8,4 +8,5 @@ import java.util.UUID;
 public interface CustomerService {
     List<Customer> getCostumers();
     Customer getCustomerById(UUID customerId);
+    Customer saveNewCustomer(Customer customer);
 }
