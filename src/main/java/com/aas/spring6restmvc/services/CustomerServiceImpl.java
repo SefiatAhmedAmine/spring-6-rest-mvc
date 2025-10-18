@@ -68,7 +68,5 @@ public class CustomerServiceImpl implements CustomerService {
         existingCustomer.setCustomerName(customer.getCustomerName());
         existingCustomer.setVersion(customer.getVersion());
         existingCustomer.setLastModifiedDate(LocalDateTime.now());
-
-        this.costumers.put(customerId, existingCustomer);
     }
 }

@@ -104,8 +104,5 @@ public class CarServiceImpl implements CarService {
         existing.setYear(car.getYear());
         existing.setQuantityOnHand(car.getQuantityOnHand());
         existing.setUpdatedDate(LocalDateTime.now());
-
-        log.debug("CarServiceImpl.updateCarById result={}", existing);
-        carMap.put(existing.getId(), existing);
     }
 }
