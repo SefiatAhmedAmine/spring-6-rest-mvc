@@ -94,5 +94,18 @@ public class CarServiceImpl implements CarService {
         return savedCar;
     }
 
+    @Override
+    public void updateCarById(UUID id, Car car) {
+        log.debug("CarServiceImpl.updateCarById was called with car={}", car);
+        Car existing = carMap.get(id);
+        existing.setCarName(car.getCarName());
+        existing.setCarStyle(car.getCarStyle());
+        existing.setPrice(car.getPrice());
+        existing.setYear(car.getYear());
+        existing.setQuantityOnHand(car.getQuantityOnHand());
+        existing.setUpdatedDate(LocalDateTime.now());
 
+        log.debug("CarServiceImpl.updateCarById result={}", existing);
+        carMap.put(existing.getId(), existing);
+    }
 }

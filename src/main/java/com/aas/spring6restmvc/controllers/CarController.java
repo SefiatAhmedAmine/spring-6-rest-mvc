@@ -19,6 +19,12 @@ import java.util.UUID;
 public class CarController {
     private final CarService carService;
 
+    @PutMapping("/{carId}")
+    public ResponseEntity updateById(@PathVariable("carId") UUID id, @RequestBody Car car) {
+        carService.updateCarById(id, car);
+        return new ResponseEntity(HttpStatus.NO_CONTENT);
+    }
+
     @PostMapping
     public ResponseEntity handlePost(@RequestBody Car car) {
         Car savedCar = carService.saveNewCar(car);
